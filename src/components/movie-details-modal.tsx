@@ -1,6 +1,7 @@
 import { X } from 'lucide-react';
-import { Movie, getMovieTrailer } from '@/lib/api';
+import { Movie } from '@/lib/api';
 import { useEffect, useState } from 'react';
+import { getMovieTrailer } from '@/lib/api';
 
 interface MovieDetailsModalProps {
   movie: Movie;

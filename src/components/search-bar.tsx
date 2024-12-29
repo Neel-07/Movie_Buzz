@@ -17,19 +17,19 @@ export const SearchBar = ({ onSearch }: SearchBarProps) => {
 
   return (
     <form onSubmit={handleSubmit} className="w-full max-w-xl">
-      <div className="relative ">
+      <div className="relative">
         <input
           type="text"
           value={query}
           onChange={(e) => setQuery(e.target.value)}
           placeholder="Search movies..."
-          className="w-full bg-gray-900 text-white rounded-full py-2 pl-4 pr-10 focus:outline-none focus:ring-2 focus:ring-red-600"
+          className="w-full bg-gray-900 text-white rounded-full py-2 pl-4  pr-10 focus:outline-none focus:ring-2 focus:ring-red-600"
         />
         <button
           type="submit"
           className="absolute right-2 top-1/2 -translate-y-1/2 text-gray-400 hover:text-white"
         >
-          <SearchIcon size={20} />
+          <SearchIcon size={20} className='mr-1' />
         </button>
       </div>
     </form>
