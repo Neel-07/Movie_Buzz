@@ -1,7 +1,7 @@
 <div align="center">
   <h1> MOVIEBUZZ 📽️ </h1>
   <h2>
-    <a href="https://your-website-link.com">VISIT THE WEBSITE</a>
+    <a href="https://movie-buzz-oa3s.vercel.app/">VISIT THE WEBSITE</a>
   </h2>
 </div>
 
@@ -21,7 +21,7 @@ The MovieBuzz Project is a frontend development project that allows users to exp
 
 ## Demo 🚀
 
-Check out the live demo of the MovieBuzz Project: [Live Demo](https://your-website-link.com)
+Check out the live demo of the MovieBuzz Project: [Live Demo](https://movie-buzz-oa3s.vercel.app/)
 
 # Reference Images 
 
