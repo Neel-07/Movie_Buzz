@@ -11,11 +11,11 @@ import {
   fetchMovies, 
   searchMoviesAsync, 
   getMovieDetailsAsync, 
-  clearSelectedMovie 
+  clearSelectedMovie, 
+  setContentType // Import setContentType action
 } from './store/moviesSlice';
 
 const App: React.FC = () => {
-  // Use typed dispatch
   const dispatch: AppDispatch = useDispatch();
   const { 
     movies, 
@@ -26,19 +26,20 @@ const App: React.FC = () => {
   } = useSelector((state: RootState) => state.movies);
 
   useEffect(() => {
-    dispatch(fetchMovies('movies'));
+    dispatch(fetchMovies('movies')); // Default to movies on initial load
   }, [dispatch]);
 
   const handleSearch = (query: string) => {
-    dispatch(searchMoviesAsync(query));
+    dispatch(searchMoviesAsync(query)); // Trigger search
   };
 
   const handleMovieClick = (movie: Movie) => {
-    dispatch(getMovieDetailsAsync(movie.imdbID));
+    dispatch(getMovieDetailsAsync(movie.imdbID)); // Get movie details when clicked
   };
 
   const handleNavItemClick = (type: 'movies' | 'tvshows' | 'watchlist') => {
-    dispatch(fetchMovies(type));
+    dispatch(fetchMovies(type)); // Fetch movies based on the selected type
+    dispatch(setContentType(type)); // Set the content type dynamically
   };
 
   const getContentTitle = () => {
@@ -59,7 +60,7 @@ const App: React.FC = () => {
   return (
     <div className="min-h-screen bg-black text-white">
       <Navbar onSearch={handleSearch} onNavItemClick={handleNavItemClick}>
-        <SearchBar onSearch={handleSearch} />
+       <SearchBar onSearch={handleSearch} />
       </Navbar>
       <main className="pt-16">
         <HeroSection />
@@ -70,7 +71,7 @@ const App: React.FC = () => {
           </div>
         </div>
         <MovieGrid
-          title={getContentTitle()}
+          title={getContentTitle()} // Title dynamically changes
           movies={contentType === 'search' ? searchResults : movies}
           isLoading={isLoading}
           onMovieClick={handleMovieClick}

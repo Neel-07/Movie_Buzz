@@ -1,7 +1,7 @@
 import { Film, Menu } from "lucide-react";
 import { useState } from "react";
 import { MobileMenu } from "./mobile-menu";
-import { SearchBar } from "./search-bar";
+
 
 interface NavbarProps {
   children?: React.ReactNode;
@@ -47,7 +47,7 @@ export const Navbar = ({ children, onSearch, onNavItemClick }: NavbarProps) => {
                 </button>
                 <button
                   onClick={() => onNavItemClick("tvshows")}
-                  className="text-gray-300 hover:text-white"
+                  className="text-gray-300 hover:text-white "
                 >
                   TV Shows
                 </button>

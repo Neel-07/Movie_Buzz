@@ -34,7 +34,7 @@ export const fetchMovies = createAsyncThunk(
       case 'tvshows':
         return await getTrendingTVShows();
       case 'watchlist':
-        return await getTrendingMovies();
+        return await getTrendingMovies(); // Modify if watchlist API is available
       default:
         return [];
     }
@@ -62,6 +62,9 @@ const moviesSlice = createSlice({
     clearSelectedMovie: (state) => {
       state.selectedMovie = null;
     },
+    setContentType: (state, action) => {
+      state.contentType = action.payload; // Action to set the contentType
+    },
   },
   extraReducers: (builder) => {
     builder
@@ -78,7 +81,7 @@ const moviesSlice = createSlice({
       .addCase(searchMoviesAsync.fulfilled, (state, action) => {
         state.isLoading = false;
         state.searchResults = action.payload;
-        state.contentType = 'search';
+        state.contentType = 'search'; // Automatically set to 'search' when searching
       })
       .addCase(getMovieDetailsAsync.fulfilled, (state, action) => {
         if (action.payload) {
@@ -88,5 +91,5 @@ const moviesSlice = createSlice({
   },
 });
 
-export const { clearSelectedMovie } = moviesSlice.actions;
+export const { clearSelectedMovie, setContentType } = moviesSlice.actions; // Export the action
 export default moviesSlice.reducer;
